@@ -1,5 +1,5 @@
 #!/bin/bash
-ORG="defectdojo"
+ORG="miradorn"
 
 deploy_demo() {
   # Deploy to dev or prod once merged to master or dev
@@ -28,7 +28,7 @@ docker_hub() {
     echo "Pushing to Docker Hub"
     for docker_image in "${DOCKER_IMAGES[@]}"
     do
-        REPO="${ORG}/${ORG}-${docker_image}"
+        REPO="${ORG}/defectdojo-${docker_image}"
         echo "Pushing to: ${REPO}"
         # Cron pushed into branch-weekly-dev-image, triggered weekly
         if [ "${TRAVIS_EVENT_TYPE}" == "cron" ]; then
@@ -36,11 +36,9 @@ docker_hub() {
           REPO="${ORG}/weekly-${ORG}-${docker_image}"
         elif [ ${TRAVIS_BRANCH} == "master" ]; then
           docker tag $CONTAINER $REPO:latest
-        else
-          TRAVIS_TAG=${TRAVIS_BRANCH}-${TRAVIS_TAG}
         fi
 
-        CONTAINER="${ORG}/${ORG}-${docker_image}"
+        CONTAINER="${ORG}/defectdojo-${docker_image}"
 
         docker tag $CONTAINER $REPO:$TRAVIS_TAG
         docker tag $CONTAINER $REPO:$TRAVIS_BUILD_ID

@@ -15,7 +15,7 @@ admin:
 # Components
 celery:
   broker: rabbitmq
-  repository: defectdojo/defectdojo-django
+  repository: miradorn/defectdojo-django
   logLevel: DEBUG
   beat:
     affinity: {}
@@ -27,7 +27,7 @@ celery:
     tolerations: []
   worker:
     affinity: {}
-    repository: defectdojo/defectdojo-django
+    repository: miradorn/defectdojo-django
     logLevel: DEBUG
     nodeSelector: {}
     replicas: 1
@@ -45,7 +45,7 @@ django:
     annotations:
       kubernetes.io/ingress.class: nginx
   nginx:
-    repository: defectdojo/defectdojo-nginx
+    repository: miradorn/defectdojo-nginx
     resources:
       requests:
         cpu: 100m
@@ -54,7 +54,7 @@ django:
   replicas: 1
   tolerations: []
   uwsgi:
-    repository: defectdojo/defectdojo-django
+    repository: miradorn/defectdojo-django
     resources:
       requests:
         cpu: 100m
@@ -62,7 +62,7 @@ django:
 
 initializer:
   run: true
-  repository: defectdojo/defectdojo-django
+  repository: miradorn/defectdojo-django
   keepSeconds: 60
   resources:
     requests:

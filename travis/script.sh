@@ -12,7 +12,7 @@ build_containers() {
   for docker_image in "${DOCKER_IMAGES[@]}"
   do
     docker build \
-      --tag "defectdojo/defectdojo-${docker_image}" \
+      --tag "miradorn/defectdojo-${docker_image}" \
       --file "Dockerfile.${docker_image}" \
       .
     return_value=${?}
@@ -203,8 +203,8 @@ echo "Running test ${TEST}"
     snyk)
       echo "Snyk security testing on containers"
       build_containers
-      snyk monitor --docker defectdojo/defectdojo-django:latest
-      snyk monitor --docker defectdojo/defectdojo-nginx:latest
+      snyk monitor --docker miradorn/defectdojo-django:latest
+      snyk monitor --docker miradorn/defectdojo-nginx:latest
       ;;
     deploy)
       echo "Deploy and container push"
