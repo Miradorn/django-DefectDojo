@@ -1,5 +1,5 @@
 # requirements.txt for DefectDojo using Python 3.x
-asteval==0.9.14
+asteval==0.9.23
 bleach>=3.1.0
 bleach-whitelist>=0.0.10
 celery==4.3.0
@@ -22,7 +22,7 @@ django-taggit-serializer==0.1.7
 git+https://github.com/Maffooch/django-tastypie-swagger@master#egg=django-tastypie-swagger
 django-tastypie==0.14.2
 django-watson==1.5.2
-Django==2.2.1
+Django==3.2.15
 djangorestframework==3.9.4
 gunicorn==19.9.0
 html2text==2018.1.9
@@ -44,7 +44,7 @@ redis==3.2.1
 requests>=2.22.0
 sqlalchemy  # Required by Celery broker transport
 supervisor==4.0.3
-urllib3==1.25.3
+urllib3==1.26.5
 uWSGI==2.0.18
 vobject==0.9.6.1
 whitenoise>=4.1.2
